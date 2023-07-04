@@ -12,9 +12,13 @@ export const todosApi = createApi({  // El createApi nos crea custom hooks, ese 
 
         getTodos: builder.query({
             query: () => '/todos'
+        }),
+
+        getTodo: builder.query({
+            query: (todoId) => `/todos/${ todoId }`
         })
     })
 
 });
 
-export const { useGetTodosQuery } = todosApi;
+export const { useGetTodosQuery, useGetTodoQuery } = todosApi;
